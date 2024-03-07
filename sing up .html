@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Form</title>
+  <style>
+    *
+    {
+        box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color:transparent   ;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #b88585;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+    .row
+    {
+        display: flex;
+    }
+
+        .col-1 { flex-basis: 6.25%; } /* 1/16 */
+        .col-2 { flex-basis: 12.5%; } /* 2/16 */
+        .col-3 { flex-basis: 18.75%; } /* 3/16 */
+        .col-4 { flex-basis: 25%; } /* 4/16 */
+        .col-5 { flex-basis: 31.25%; } /* 5/16 */
+        .col-6 { flex-basis: 37.5%; } /* 6/16 */
+        .col-7 { flex-basis: 43.75%; } /* 7/16 */
+        .col-8 { flex-basis: 50%; } /* 8/16 */
+        .col-9 { flex-basis: 56.25%; } /* 9/16 */
+        .col-10 { flex-basis: 62.5%; } /* 10/16 */
+        .col-11 { flex-basis: 68.75%; } /* 11/16 */
+        .col-12 { flex-basis: 75%; } /* 12/16 */
+        .col-13 { flex-basis: 81.25%; } /* 13/16 */
+        .col-14 { flex-basis: 87.5%; } /* 14/16 */
+        .col-15 { flex-basis: 93.75%; } /* 15/16 */
+        .col-16 { flex-basis: 100%; } /* 16/16 */
+
+
+h2
+{
+    text-align: center;
+    color: green;
+}
+  </style>
+</head>
+<body>
+    <h2>Welcome in to signup Page</h2>
+    <main class="row">
+    <!-- left part -->
+    <div class="col-4">
+        
+    </div>
+
+    <!--Sign Up Form Middel part  -->
+  <div class="container col-8">
+    <h2 style="color: black;">Sign Up Form</h2>
+    <form action="login.html" method="post" onsubmit="saveSignupData()">
+      <div class="form-group">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="fname" required>
+      </div>
+      <div class="form-group">
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lname" required>
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <textarea id="address" name="address" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="birthdate">Birth Date</label>
+        <input type="date" id="birthdate" name="birthdate" required>
+      </div>
+      <button type="submit" >Sign Up</button>
+    </form>
+  </div>
+
+
+
+<!-- Right part -->
+<div class="col-4" >
+
+</div>
+
+
+
+
+
+<script>
+  function saveSignupData() {
+    var formData = {
+      fname: document.getElementById("fname").value,
+      lname: document.getElementById("lname").value,
+      username: document.getElementById("username").value,
+      password: document.getElementById("password").value,
+      email: document.getElementById("email").value,
+      phone: document.getElementById("phone").value,
+      address: document.getElementById("address").value,
+      birthdate: document.getElementById("birthdate").value
+    };
+  
+    // Convert the form data to a JSON string and store it in sessionStorage
+    sessionStorage.setItem('signupData', JSON.stringify(formData));
+  }
+  </script>
+
+</main>
+</body>
+</html>

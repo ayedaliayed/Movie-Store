@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    /* CSS for login page */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+      /* Added for positioning */
+    }
+
+    #login-container {
+      position: relative;
+      /* Added for positioning */
+      z-index: 1;
+      /* Ensure login container is above the header */
+      width: 90%;
+      max-width: 400px;
+      margin-top: 30px;
+      /* Adjusted margin to create space for header */
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      position: absolute;
+      /* Added for positioning */
+      top: 0;
+      /* Position header at the top */
+      width: 100%;
+      background-color: #007bff;
+      color: #fff;
+      padding: 20px 0;
+      /* Added padding for better visibility */
+      margin: 0;
+      /* Remove default margin */
+      border-top-left-radius: 5px;
+      /* Ensure rounded corners */
+      border-top-right-radius: 5px;
+      /* Ensure rounded corners */
+      z-index: 2;
+      /* Ensure header is above login container */
+      text-align: center;
+      color: black;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-weight: bolder;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="login-container">
+
+    <div id="login-form">
+      <form onsubmit="return validateLogin()" action="Home.html">
+        <input type="text" id="username" name="username" placeholder="Username" required><br>
+        <input type="password" id="password" name="password" placeholder="Password" required><br>
+        <input type="submit" value="Login">
+      </form>
+    </div>
+  </div>
+
+  <h1>Welcome to Login Page</h1>
+
+
+
+
+
+  <script>
+    function validateLogin() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      var signupData = JSON.parse(sessionStorage.getItem('signupData'));
+      if (signupData) {
+
+        var usernameSession = signupData.username;
+        var passwordSession = signupData.password;
+      }
+      var userData = [
+        { username: "ayedali", password: "123456" },
+        { username: "asd", password: "98765" },
+        { username: usernameSession, password: passwordSession },
+      ];
+
+
+      var validCredentials = userData.some(function (data) {
+        return data.username === username && data.password === password;
+      });
+
+      if (!validCredentials) {
+        alert("Please enter the correct username and password.");
+        return false;
+      }
+
+      return true;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+
+
+
+</body>
+
+</html>

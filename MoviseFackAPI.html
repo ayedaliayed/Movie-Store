@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="movieContainer">
+        <!-- Movie data will be inserted here -->
+    </div>
+
+
+
+
+
+
+    <script>
+
+        var xhr = new XMLHttpRequest()
+        xhr.open("Get", "https://my-json-server.typicode.com/horizon-code-academy/fake-movies-api/movies")
+        xhr.send();
+
+        xhr.addEventListener("readystatechange", function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var data = JSON.parse(xhr.response)
+
+                for (var i = 0; i < data.length; i++) {
+
+
+
+                    // Define the movie data
+                    var movieData = data[i]
+                        
+
+                    var container = document.getElementById("movieContainer");
+
+// Create elements to display the movie data
+var titleElement = document.createElement("h2");
+titleElement.textContent = movieData.Title;
+
+var yearElement = document.createElement("p");
+yearElement.textContent = "Year: " + movieData.Year;
+
+var runtimeElement = document.createElement("p");
+runtimeElement.textContent = "Runtime: " + movieData.Runtime;
+
+var posterElement = document.createElement("img");
+posterElement.src = movieData.Poster;
+posterElement.alt = movieData.Title;
+
+// Append elements to the container
+container.appendChild(titleElement);
+container.appendChild(yearElement);
+container.appendChild(runtimeElement);
+container.appendChild(posterElement);
+
+
+
+
+
+
+
+                }
+
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
